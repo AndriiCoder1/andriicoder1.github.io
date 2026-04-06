@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrii Kovalov · Backend Developer</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --accent: #6baed6;
+            --text: #1a3c5e;
+            --text-light: #5a7f9e;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: #c0d9f0;
+        }
+
+        /* Горы — статичный фон */
+        .mountain-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #c0d9f0 0%, #a8c8e8 100%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero {
+            height: 100vh;
+            min-height: 620px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            position: absolute;
+            top: 35px;
+            right: 6%;
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 3rem;
+            color: rgba(26,60,94,0.4);
+            z-index: 10;
+            opacity: 0;
+            transform: scale(0.92);
+            animation: logoAppear 5.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        @keyframes logoAppear {
+            0% {
+                opacity: 0;
+                transform: scale(0.92);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .avatar-frame {
+            width: 230px;
+            height: 230px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid rgba(255,255,255,0.8);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            background: rgba(255,255,255,0.3);
+        }
+        .avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 7vw, 5rem);
+            color: white;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+            margin-bottom: 0.3rem;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1.5rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(12px);
+            border-radius: 32px;
+            padding: 2rem 2.5rem;
+            margin: 3rem 0;
+            border: 1px solid rgba(255,255,255,0.5);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.35);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text);
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: var(--accent);
+            margin: 0.5rem auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(8px);
+            border-radius: 24px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .project-card:hover {
+            transform: scale(1.02);
+            background: rgba(255,255,255,0.3);
+        }
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        .project-tech {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        .project-desc {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .tech-item {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(4px);
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .contact-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .contact-links a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Анимация для появления элементов */
+        @keyframes fadeSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Фото — появляется первым */
+        .avatar-frame {
+            animation: fadeSlideUp 0.8s ease-out forwards;
+        }
+
+        /* Имя — появляется после фото (задержка 0.3s) */
+        h1 {
+            animation: fadeSlideUp 0.8s 0.3s ease-out forwards;
+            opacity: 0;
+        }
+
+        /* Должность (tagline) — появляется после имени (задержка 0.6s) */
+        .tagline {
+            animation: fadeSlideUp 0.8s 0.6s ease-out forwards;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="mountain-bg" style="background: url('images/mountains-clean.jpg') center bottom / cover no-repeat;"></div>
+
+<div class="content">
+    <div class="hero">
+        <div class="logo">AK</div>
+        <div>
+            <div class="avatar-frame">
+                <img src="images/avatar.jpg" alt="Andrii Kovalov" class="avatar">
+            </div>
+            <h1>Andrii Kovalov</h1>
+            <div class="tagline">Backend / Full-Stack Developer · Python · Django · Node.js · AI</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <section>
+            <div class="card">
+                <h2 class="section-title">About</h2>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto;">
+                    Backend-focused developer with 10+ years of freelance experience building AI-powered web applications. Passionate about clean architecture, scalable systems, and meaningful projects. Based in Switzerland, open to remote opportunities.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-item">Python</span>
+                    <span class="tech-item">Django</span>
+                    <span class="tech-item">Node.js</span>
+                    <span class="tech-item">PostgreSQL</span>
+                    <span class="tech-item">Redis</span>
+                    <span class="tech-item">Docker</span>
+                    <span class="tech-item">WebRTC</span>
+                    <span class="tech-item">AI/ML (LLaMA, Whisper, Ollama)</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="card">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-title">EverRest</div>
+                        <div class="project-tech">Django · PostgreSQL · Redis · Celery · Docker · Ollama</div>
+                        <div class="project-desc">SaaS memorial platform with AI moderation, QR-code access, and multi-language support. GDPR-compliant, local AI (no data leaves the server).</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title">ChatHelp</div>
+                        <div class="project-tech">Node.js · Python · LLaMA · Whisper · SerpAPI · TTS</div>
+                        <div class="project-desc">Voice-controlled AI assistant with hybrid architecture (Node.js + Python). Real-time interaction, LLM integration, speech-to-text and text-to-speech.</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title">Sign Language Video Chat</div>
+                        <div class="project-tech">React · Three.js · MediaPipe · WebRTC · Socket.IO</div>
+                        <div class="project-desc">Real-time translation platform with 3D avatar animation. Gesture recognition and accessible communication tools.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="card" style="text-align: center;">
+                <h2 class="section-title">Contact</h2>
+                <div class="contact-links">
+                    <a href="https://github.com/AndriiCoder1" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/andrii-kovalov-593057329" target="_blank">LinkedIn</a>
+                    <a href="mailto:denisov20051985@gmail.com">Email</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2026 Andrii Kovalov · Backend Developer
+    </footer>
+</div>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+</script>
+
+</body>
+</html>
