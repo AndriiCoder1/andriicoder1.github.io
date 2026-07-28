@@ -146,7 +146,7 @@
             flex-wrap: nowrap; 
             gap: 1.5rem;
             overflow-x: auto; 
-            padding-bottom: 1rem; 
+            padding: 0.5rem 1.5rem 1.5rem 1.5rem; 
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none; 
@@ -160,7 +160,7 @@
             border-radius: 24px;
             padding: 1.5rem;
             transition: all 0.3s;
-            flex: 0 0 300px;
+            flex: 0 0 280px;
             scroll-snap-align: start; 
             height: 100%; 
             display: flex;
@@ -262,6 +262,44 @@
             animation: fadeSlideUp 0.8s 0.6s ease-out forwards;
             opacity: 0;
         }
+        /* Стили для кнопок (видны только на ПК) */
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .nav-btn {
+            background: rgba(255,255,255,0.3);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 1.5rem;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: none; /* Скрыты по умолчанию */
+            align-items: center;
+            justify-content: center;
+        }
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.6);
+            transform: scale(1.1);
+        }
+        /* Показываем кнопки только на экранах шире 768px  */
+        @media (min-width: 768px) {
+            .nav-btn {
+                display: flex;
+            }
+        }
+        /* Скрываем кнопки на телефонах */
+        @media (max-width: 767px) {
+            .carousel-controls {
+                display: none;
+            }
+        }
     </style>
     <script data-goatcounter="https://andriicoder1.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
@@ -305,7 +343,7 @@
         <section>
             <div class="card">
                 <h2 class="section-title">Projects</h2>
-                <div class="projects-grid">
+                <div class="projects-grid" id="projectCarousel">
                     <div class="project-card">
                         <div class="project-title">Kolo 🏛️</div>
                         <div class="project-title">CivicTech</div>
@@ -332,6 +370,10 @@
                         <div class="project-desc">Real-time translation platform with 3D avatar animation. Gesture recognition and accessible communication tools.</div>
                     </div>
                 </div>
+                <div class="carousel-controls">
+                    <button class="nav-btn prev" onclick="scrollProjects(-1)">‹</button>
+                    <button class="nav-btn next" onclick="scrollProjects(1)">›</button>
+                </div>
             </div>
         </section>
 
@@ -346,12 +388,10 @@
             </div>
         </section>
     </div>
-
     <footer>
         &copy; 2026 Andrii Kovalov · Backend Developer
     </footer>
 </div>
-
 <script>
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -359,7 +399,12 @@
         });
     }, { threshold: 0.2 });
     document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+    // Функция прокрутки для кнопок
+    function scrollProjects(direction) {
+        const container = document.getElementById('projectCarousel');
+        const cardWidth = container.querySelector('.project-card').offsetWidth + 24;
+        container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+    }
 </script>
-
 </body>
 </html>
