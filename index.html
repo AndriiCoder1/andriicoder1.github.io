@@ -402,8 +402,12 @@
     // Функция прокрутки для кнопок
     function scrollProjects(direction) {
         const container = document.getElementById('projectCarousel');
-        const cardWidth = container.querySelector('.project-card').offsetWidth + 24;
-        container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+        const card = container.querySelector('.project-card');
+        if (card) {
+            // Получаем точную ширину карточки вместе с отступом (gap)
+            const cardWidth = card.getBoundingClientRect().width + 24; 
+            container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+        }
     }
 </script>
 </body>
