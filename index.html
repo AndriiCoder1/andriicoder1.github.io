@@ -297,6 +297,9 @@
         }
         /* Скрываем кнопки на телефонах */
         @media (max-width: 767px) {
+            .mobile-hint {
+                display: block !important; /* Показываем только на мобильных */
+            }
             .carousel-controls {
                 display: none;
             }
@@ -354,6 +357,7 @@
         <section>
             <div class="card">
                 <h2 class="section-title">Projects</h2>
+                <p class="mobile-hint" style="text-align: center; font-size: 0.85rem; color: #5a7f9e; margin-top: -1rem; margin-bottom: 1rem; display: none;">← Swipe to explore →</p>
                 <div class="projects-grid" id="projectCarousel">
                 <!-- Карточка SwissLegalAssist -->
                 <a href="project-swiss_legal.html" class="project-card" style="text-decoration: none; color: inherit;">
