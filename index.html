@@ -355,31 +355,44 @@
             <div class="card">
                 <h2 class="section-title">Projects</h2>
                 <div class="projects-grid" id="projectCarousel">
-                    <div class="project-card">
-                        <div class="project-title">Kolo 🏛️ CivicTech</div>
-                        <div class="project-tech">Django · DRF · PostgreSQL · Stripe · Ollama · Resend · Render</div>
-                        <div class="project-desc">Cooperative digital platform for migrant integration in Switzerland. 
-                        Features democratic governance (role-based access), economic participation (Stripe integration for memberships), 
-                        and AI-driven media monitoring (aggregating 8,000+ articles from 7 Swiss sources). Fully 
-                        multilingual (DE, FR, IT, EN, RU, UA). Privacy-first architecture.
-                    </div>
-                </div>     
-                    <div class="project-card">
-                        <div class="project-title">EverRest</div>
-                        <div class="project-tech">Django · PostgreSQL · Redis · Celery · Docker · Ollama</div>
-                        <div class="project-desc">SaaS memorial platform with AI moderation, QR-code access, and multi-language support. Privacy-first: local AI (Ollama) ensures no user data is sent to third-party APIs.</div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-title">ChatHelp</div>
-                        <div class="project-tech">Node.js · Python · LLaMA · Whisper · SerpAPI · TTS</div>
-                        <div class="project-desc">Voice-controlled AI assistant with hybrid architecture (Node.js + Python). Real-time interaction, LLM integration, speech-to-text and text-to-speech.</div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-title">Sign Language Video Chat</div>
-                        <div class="project-tech">React · Three.js · MediaPipe · WebRTC · Socket.IO</div>
-                        <div class="project-desc">Real-time translation platform with 3D avatar animation. Gesture recognition and accessible communication tools.</div>
-                    </div>
-                </div>
+                <!-- Карточка SwissLegalAssist -->
+                <a href="project-swiss_legal.html" class="project-card" style="text-decoration: none; color: inherit;">
+                    <div class="project-title">SwissLegalAssist ⚖️</div>
+                    <div class="project-tech">Django · PostgreSQL (pgvector) · Groq · Hugging Face</div>
+                    <div class="project-desc">AI-powered legal research assistant (RAG). Hybrid search over 40,000+ legal documents with source references. Privacy-first (Zero Data Retention enabled).</div>
+                    <div style="margin-top: auto; padding-top: 1rem; font-size: 0.85rem; color: #1a3c5e; font-weight: 600;">Read more →</div>
+                </a>
+                 <!-- Карточка Kolo -->
+                <a href="project-kolo.html" class="project-card" style="text-decoration: none; color: inherit;">
+                    <div class="project-title">Kolo 🏛️ CivicTech</div>
+                    <div class="project-tech">Django · DRF · PostgreSQL · Stripe · Ollama · Resend · Render</div>
+                    <div class="project-desc">Cooperative digital platform for migrant integration in Switzerland. Features democratic governance (role-based access), economic participation (Stripe integration for memberships), and AI-driven media monitoring (aggregating 8,000+ articles from 7 Swiss sources). Fully multilingual (DE, FR, IT, EN, RU, UA). Privacy-first architecture.</div>
+                    <div style="margin-top: auto; padding-top: 1rem; font-size: 0.85rem; color: #1a3c5e; font-weight: 600;">Read more →</div>
+                </a>
+                <!-- Карточка EverRest -->
+                <a href="project-everrest.html" class="project-card" style="text-decoration: none; color: inherit;">
+                    <div class="project-title">EverRest</div>
+                    <div class="project-tech">Django · PostgreSQL · Redis · Celery · Docker · Ollama</div>
+                    <div class="project-desc">SaaS memorial platform with AI moderation, QR-code access, and multi-language support. Privacy-first: local AI (Ollama) ensures no user data is sent to third-party APIs.</div>
+                    <div style="margin-top: auto; padding-top: 1rem; font-size: 0.85rem; color: #1a3c5e; font-weight: 600;">Read more →</div>
+                </a>
+            
+                <!-- Карточка ChatHelp -->
+                <a href="project-chathelp.html" class="project-card" style="text-decoration: none; color: inherit;">
+                    <div class="project-title">ChatHelp</div>
+                    <div class="project-tech">Node.js · Python · LLaMA · Whisper · SerpAPI · TTS</div>
+                    <div class="project-desc">Voice-controlled AI assistant with hybrid architecture (Node.js + Python). Real-time interaction, LLM integration, speech-to-text and text-to-speech.</div>
+                    <div style="margin-top: auto; padding-top: 1rem; font-size: 0.85rem; color: #1a3c5e; font-weight: 600;">Read more →</div>
+                </a>
+            
+                <!-- Карточка Sign Language -->
+                <a href="project-signlang.html" class="project-card" style="text-decoration: none; color: inherit;">
+                    <div class="project-title">Sign Language Video Chat</div>
+                    <div class="project-tech">React · Three.js · MediaPipe · WebRTC · Socket.IO</div>
+                    <div class="project-desc">Real-time translation platform with 3D avatar animation. Gesture recognition and accessible communication tools.</div>
+                    <div style="margin-top: auto; padding-top: 1rem; font-size: 0.85rem; color: #1a3c5e; font-weight: 600;">Read more →</div>
+                </a>  
+            </div>
                 <div class="carousel-controls">
                     <button class="nav-btn prev" onclick="scrollProjects(-1)">‹</button>
                     <button class="nav-btn next" onclick="scrollProjects(1)">›</button>
