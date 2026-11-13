@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Name · Andrii Kovalov</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --accent: #6baed6;
+            --text: #1a3c5e;
+            --text-light: #5a7f9e;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            color: var(--text);
+            min-height: 100vh;
+            background: #c0d9f0;
+        }
+
+        .mountain-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100vh;
+            background: url('images/mountains-clean.jpg') center bottom / cover no-repeat;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem 1rem 4rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Кнопка назад */
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            background: rgba(255,255,255,0.3);
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+            transition: all 0.2s;
+        }
+        .back-btn:hover {
+            background: rgba(255,255,255,0.6);
+            transform: translateX(-5px);
+        }
+
+        /* Основная карточка */
+        .project-container {
+            background: rgba(255,255,255,0.35);
+            backdrop-filter: blur(16px);
+            border-radius: 24px;
+            padding: 3rem;
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            line-height: 1.7;
+        }
+
+        /* Стили для Markdown-текста внутри карточки */
+        .project-container h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1rem;
+            text-align: center;
+        }
+        .project-container h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        .project-container h3 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .project-container p { margin-bottom: 1rem; }
+        .project-container ul, .project-container ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .project-container li { margin-bottom: 0.5rem; }
+        
+        /* Стили для таблиц (характеристики) */
+        .project-container table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .project-container th, .project-container td {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+        .project-container th {
+            background: rgba(255,255,255,0.3);
+            font-weight: 600;
+        }
+
+        /* Стили для блоков кода */
+        .project-container pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        .project-container code {
+            font-family: 'Courier New', monospace;
+            background: rgba(0,0,0,0.05);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        /* Ссылки */
+        .project-container a {
+            color: var(--text); 
+            font-weight: 600; 
+            text-decoration: none;
+            border-bottom: 2px solid var(--accent); 
+            transition: all 0.2s;
+        }
+        .project-container a:hover {
+            color: var(--accent); 
+            border-bottom-color: var(--text); 
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .project-container { padding: 1.5rem; }
+            .project-container h1 { font-size: 2rem; }
+            .project-container h2 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="mountain-bg"></div>
+
+<div class="content">
+    <div class="container">
+        <!-- Кнопка Назад -->
+        <a href="index.html" class="back-btn">← Back to Home</a>
+
+        <!-- Основной контент -->
+        <div class="project-container">
+            <h1>EverRest — Digital Memorial Platform</h1>
+              <p> <img src="https://flagcdn.com/w40/ch.png" alt="🇨🇭"></p>
+              <h2 id="everrest-digital-memorial-platform">EverRest — Digital Memorial Platform</h2>
+              <p> <a href="https://drive.google.com/file/d/1DktaBfMPm5aJZp0cM2GDDyKMK-2ZB-zl/view?usp=drive_link">📺 Watch the Demo</a></p>
+              <p>EverRest is an ethical, secure, and scalable SaaS solution for creating memorial pages, built with privacy-first architecture and tailored for the Swiss market. The platform provides partners (funeral homes) with tools to manage memorials, while families get private access to edit content and moderate tributes.</p>
+              <p> <strong>Public Access &amp; QR Codes</strong></p>
+              <p>Each memorial receives a unique QR code that can be placed on a tombstone or monument. Friends and relatives can:</p>
+              <ul>
+              <li>Scan the QR code to visit the public memorial page</li>
+              <li>Leave a tribute (condolence) without registration</li>
+              <li>Browse memories and photos</li>
+              </ul>
+              <p>The public page is available via a short link (e.g., ....../memorials/ANNMUL2025/public/), which can be shared on messengers or social media.</p>
+              <h2 id="frontend-ui-ux-design">Frontend &amp; UI/UX Design</h2>
+              <p>The public-facing memorial pages are designed with emotional sensitivity and accessibility in mind, using pure HTML/CSS/JavaScript with Django templates.</p>
+              <ul>
+              <li><strong>Glassmorphism Design:</strong> Semi-transparent cards with <code>backdrop-filter: blur()</code> create a floating, ethereal effect</li>
+              <li><strong>Smooth Animations:</strong> CSS transitions and keyframe animations for logo appearance and card reveals</li>
+              <li><strong>Responsive Layout:</strong> Fully adaptive grid and flex layouts for all device sizes (mobile, tablet, desktop)</li>
+              <li><strong>Accessible Forms:</strong> Clean, minimal tribute form with focus states and clear error handling</li>
+              <li><strong>Emotional Visuals:</strong> Mountain background with parallax scrolling, animated logo (ER + EverRest), and soft color palette (blue accents)</li>
+              <li><strong>No External Frameworks:</strong> Pure HTML/CSS/JavaScript — fast load times and no dependency overhead</li>
+              </ul>
+              <p> <strong>AI Tribute Moderation (Local, Offline)</strong></p>
+              <p>The built-in <strong>Ollama (phi3:latest)</strong> model runs entirely <strong>locally</strong> — no data leaves the server.</p>
+              <ul>
+              <li>Tribute analysis completes in <strong>under 20 seconds</strong> (tested on 8GB RAM running the full stack: Django, Celery, and Ollama simultaneously)</li>
+              <li><strong>Family tributes bypass AI moderation:</strong> Tributes submitted by family members (via token-protected family dashboard) are published instantly without AI checks — the system trusts family content</li>
+              <li><strong>Guest tributes are AI-moderated:</strong> All tributes from guests go through the full AI moderation pipeline before publication</li>
+              <li><strong>Moderation criteria (for guests):</strong><ul>
+              <li>matching the deceased&#39;s last name in the tribute text</li>
+              <li>author name verification (guest leaves their name)</li>
+              <li>text sentiment analysis (detects respectful vs inappropriate content)</li>
+              <li>confidence thresholds (80% auto-approve, 70% auto-reject, 40–70% flagged for family review)</li>
+              </ul>
+              </li>
+              <li><strong>Respectful anonymous-style tributes:</strong> The AI passes tributes that are respectful even if they don&#39;t mention the deceased&#39;s name</li>
+              <li><strong>Flagged tributes:</strong> When the AI is uncertain (40–70% confidence), the tribute is marked for family review — family can approve or reject it via the family dashboard</li>
+              <li><strong>Guest permissions:</strong> Guests can submit tributes but cannot edit or delete them once submitted</li>
+              <li><strong>Family moderation:</strong> Family members can approve, reject, or delete flagged tributes through the token-protected family dashboard</li>
+              <li><strong>Manual override:</strong> If a guest tribute needs removal (e.g., inappropriate or unwanted), the family can contact the platform admin, who can delete it via the admin panel (all actions logged)</li>
+              <li><strong>Family&#39;s own tributes:</strong> Family members can edit or delete tributes they personally wrote using the family dashboard</li>
+              <li><strong>Data protection &amp; audit logging:</strong> All actions are logged (AuditLog) with IP, timestamp, and user details — cross-user edits are not allowed</li>
+              <li><p><strong>Multi-language support:</strong> DE, FR, IT, EN for tributes and UI</p>
+              <p><strong>Performance &amp; Scalability</strong></p>
+              </li>
+              <li><p><strong>Load Testing:</strong> Conducted stress testing using custom Python multi-threading scripts against a Waitress WSGI server (4 threads).</p>
+              <ul>
+              <li><strong>Test Volume:</strong> 100 mixed requests (public pages, family pages, family tributes, and AI-moderated guest tributes).</li>
+              <li><strong>Success Rate:</strong> <strong>96–100%</strong> across multiple test runs. <ul>
+              <li><em>Run 1 (10s timeout):</em> 96% success. 4 requests failed due to local AI inference (Ollama) exceeding the 10-second limit under heavy concurrent load.</li>
+              <li><em>Run 2 (30s timeout):</em> 100% success. This confirmed that the system handles the load, but the AI step requires asynchronous processing.</li>
+              </ul>
+              </li>
+              <li><strong>Average Response Times (under concurrent load):</strong><ul>
+              <li>Public Memorial Page (GET): <strong>~0.22s</strong></li>
+              <li>Family Dashboard (GET, token auth): <strong>~0.87s</strong></li>
+              <li>Family Tribute (POST, bypasses AI): <strong>~1.00s</strong></li>
+              <li><strong>Guest Tribute (POST, full AI moderation): ~5.46s</strong> </li>
+              </ul>
+              </li>
+              <li><strong>Architectural Solution:</strong> The local Ollama model (phi3) runs on CPU, which accounts for the latency (~5s). In production, this is offloaded to <strong>Celery background workers</strong>, keeping the API response time for guests under 1 second while AI processes the text asynchronously.</li>
+              </ul>
+              </li>
+              <li><p><strong>Architecture Ready for Scaling:</strong></p>
+              <ul>
+              <li><strong>Database:</strong> PostgreSQL (indexes, query optimization).</li>
+              <li><strong>Background tasks:</strong> Celery + Redis (moves heavy AI tasks out of the synchronous HTTP cycle).</li>
+              <li><strong>Static &amp; media:</strong> Nginx + AWS S3 (or local storage).</li>
+              <li><strong>Target Audience:</strong> Built to handle the Swiss market. Horizontal scaling (adding more Gunicorn workers, separating AI workers) can support high traffic.</li>
+              </ul>
+              <p><strong>Security &amp; Privacy</strong></p>
+              </li>
+              <li><p><strong>Role-based access:</strong></p>
+              <ul>
+              <li>Partners (funeral homes): Admin panel access, memorial creation</li>
+              <li>Families: Unique tokens, content editing, media uploads, tribute management</li>
+              <li>Guests: View only, tribute submission (AI-moderated)</li>
+              </ul>
+              </li>
+              <li><strong>Audit logging:</strong> All critical actions are logged (IP, timestamp, user). Cross-user edits are not allowed.</li>
+              <li><strong>Privacy-first architecture (GDPR/FADP principles):</strong> Data retention policy, right to request/delete personal data, consent handling.</li>
+              <li><strong>Local AI:</strong> Ollama runs locally within the Docker network. No data is sent to third-party AI APIs.</li>
+              </ul>
+              <p> Architecture &amp; Deployment
+              Docker Compose Services</p>
+              <pre><code class="lang-yaml"><span class="hljs-symbol">services:</span>
+              <span class="hljs-symbol">  db:</span>          <span class="hljs-meta"># PostgreSQL (main database)</span>
+              <span class="hljs-symbol">  redis:</span>       <span class="hljs-meta"># Redis (cache + Celery broker)</span>
+              <span class="hljs-symbol">  ollama:</span>      <span class="hljs-meta"># AI moderation (phi3:latest, local)</span>
+              <span class="hljs-symbol">  web:</span>         <span class="hljs-meta"># Django + Gunicorn</span>
+              <span class="hljs-symbol">  celery:</span>      <span class="hljs-meta"># Celery worker (background tasks)</span>
+              <span class="hljs-symbol">  nginx:</span>       <span class="hljs-meta"># Nginx (proxy, static &amp; media files)</span>
+              </code></pre>
+              <ul>
+              <li><strong>Healthchecks:</strong> All services are verified before dependencies start</li>
+              <li><strong>Static files build:</strong> Automatic <code>collectstatic</code> on startup</li>
+              <li><strong>Localization:</strong> Interface in 4 languages (DE, FR, IT, EN)</li>
+              </ul>
+              <p> Project Structure</p>
+              <pre><code>copy_everest/
+              ├── .env                      <span class="hljs-meta"># Environment variables</span>
+              ├── docker-compose.yml        <span class="hljs-meta"># Service orchestration</span>
+              ├── Dockerfile                <span class="hljs-meta"># Django app build</span>
+              ├── nginx.conf                <span class="hljs-meta"># Nginx configuration</span>
+              ├── manage.py                 <span class="hljs-meta"># Django management</span>
+              ├── everest/                  <span class="hljs-meta"># Core Django configuration</span>
+              │   ├── settings.py           <span class="hljs-meta"># Settings (split into common, production)</span>
+              │   ├── urls.py               <span class="hljs-meta"># URL routing</span>
+              │   └── wsgi.py               <span class="hljs-meta"># Gunicorn entry point</span>
+              ├── memorials/                <span class="hljs-meta"># Memorials app</span>
+              │   ├── models.py             <span class="hljs-meta"># Models (Memorial, FamilyInvite)</span>
+              │   ├── admin.py              <span class="hljs-meta"># Admin panel (partner configuration)</span>
+              │   ├── api.py                <span class="hljs-meta"># DRF API for guests and families</span>
+              │   └── views.py              <span class="hljs-meta"># Views</span>
+              ├── assets/                   <span class="hljs-meta"># Media assets app</span>
+              │   ├── models.py             <span class="hljs-meta"># MediaAsset, Thumbnail</span>
+              │   └── tasks.py              <span class="hljs-meta"># Celery tasks (thumbnail generation)</span>
+              ├── tributes/                 <span class="hljs-meta"># Tributes app</span>
+              │   ├── models.py             <span class="hljs-meta"># Tribute (approved, pending moderation)</span>
+              │   └── tasks.py              <span class="hljs-meta"># AI moderation via Ollama</span>
+              ├── audits/                   <span class="hljs-meta"># Audit logging app</span>
+              │   ├── middleware.py         <span class="hljs-meta"># Request logging</span>
+              │   └── models.py             <span class="hljs-meta"># AuditLog</span>
+              ├── templates/                <span class="hljs-meta"># HTML templates</span>
+              │   ├── tributes/             <span class="hljs-meta"># Public memorial page</span>
+              │   └── family/               <span class="hljs-meta"># Family dashboard</span>
+              ├── <span class="hljs-keyword">static</span>/                   <span class="hljs-meta"># Static files (CSS, JS, images)</span>
+              │   └── images/
+              │       └── mountains-clean.jpg  <span class="hljs-meta"># Mountain background</span>
+              ├── media/                    <span class="hljs-meta"># User-uploaded media files</span>
+              └── locale/                   <span class="hljs-meta"># Translations (DE, FR, IT, EN)</span>
+              </code></pre><p> Deployment</p>
+              <pre><code class="lang-bash"># Clone the repository
+              git clone http<span class="hljs-variable">s:</span>//github.<span class="hljs-keyword">com</span>/AndriiCoder1/copy_everest.git
+              <span class="hljs-keyword">cd</span> copy_everest
+              
+              # Configure .env (<span class="hljs-keyword">copy</span> .env.example <span class="hljs-built_in">and</span> fill in)
+              <span class="hljs-keyword">cp</span> .env.example .env
+              
+              # Start <span class="hljs-keyword">all</span> services
+              docker-compose <span class="hljs-keyword">up</span> -d
+              
+              # Apply migrations
+              docker exec -it copy_everest-web-<span class="hljs-number">1</span> <span class="hljs-keyword">python</span> manage.<span class="hljs-keyword">py</span> migrate
+              
+              # Create superuser
+              docker exec -it copy_everest-web-<span class="hljs-number">1</span> <span class="hljs-keyword">python</span> manage.<span class="hljs-keyword">py</span> createsuperuser
+              
+              # Load sample data (optional)
+              docker exec -it copy_everest-web-<span class="hljs-number">1</span> <span class="hljs-keyword">python</span> manage.<span class="hljs-keyword">py</span> loaddata datadump.json
+              </code></pre>
+              <p> Application Access</p>
+              <table>
+              <thead>
+              <tr>
+              <th>Interface</th>
+              <th>URL</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+              <td>Public page</td>
+              <td><code>http://your-domain/memorials/{short_code}/public/</code></td>
+              </tr>
+              <tr>
+              <td>Family page</td>
+              <td><code>http://your-domain/memorials/{short_code}/family/?token={token}</code></td>
+              </tr>
+              <tr>
+              <td>Admin panel (partners)</td>
+              <td><code>http://your-domain/admin/</code></td>
+              </tr>
+              <tr>
+              <td>API</td>
+              <td><code>http://your-domain/api/</code></td>
+              </tr>
+              </tbody>
+              </table>
+              <hr>
+              <h2 id="about-the-author">About the Author</h2>
+              <p>This project was created by <strong>Andrii Kovalov</strong> (<a href="https://github.com/AndriiCoder1">@AndriiCoder1</a>).</p>
+              <ul>
+              <li><strong>Purpose:</strong> Digital memorial platform with AI moderation, designed for the Swiss market</li>
+              <li><strong>Tech Stack:</strong> Django 5.29, PostgreSQL, Redis, Celery, Ollama (phi3), Docker, Nginx</li>
+              <li><strong>Key Features:</strong> Privacy-first architecture, local AI moderation (no internet), QR-code access, role-based access (partners, families, guests), audit logging, multi-language support (DE, FR, IT, EN)</li>
+              <li><strong>Performance:</strong> Stress-tested with 100 mixed concurrent requests (96–100% success rate). Identified AI inference latency (~5.5s on local CPU) and addressed it via Celery asynchronous background processing.</li>
+              <li><strong>License:</strong> GNU Affero General Public License v3.0</li>
+              </ul>
+              <p>If you find this project useful, feel free to <strong>star ⭐</strong> the repository!</p>
+              <hr>
+              <h2 id="related-projects">Related Projects</h2>
+              <p>Part of my portfolio of open-source projects:</p>
+              <table>
+              <thead>
+              <tr>
+              <th>Project</th>
+              <th>Description</th>
+              <th>Tech Stack</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+              <td><a href="https://github.com/AndriiCoder1/kolo"><strong>Kolo</strong></a></td>
+              <td>Cooperative CivicTech for migrant integration</td>
+              <td>Django, DRF, Stripe, Ollama AI, Resend</td>
+              </tr>
+              <tr>
+              <td><a href="https://github.com/AndriiCoder1/copy_everest"><strong>EverRest</strong></a></td>
+              <td>Digital memorial platform (SaaS)</td>
+              <td>Django, PostgreSQL, Docker, Celery, Ollama AI</td>
+              </tr>
+              <tr>
+              <td><a href="https://github.com/AndriiCoder1/video-chat"><strong>Video Chat with Sign Language</strong></a></td>
+              <td>Real-time sign language translation</td>
+              <td>React, Three.js, MediaPipe, Ollama AI, WebRTC</td>
+              </tr>
+              <tr>
+              <td><a href="https://github.com/AndriiCoder1/chathelp"><strong>ChatHelp</strong></a></td>
+              <td>Personal AI assistant with voice</td>
+              <td>Node.js, Python, Hugging Face, Whisper</td>
+              </tr>
+              </tbody>
+              </table>
+              <hr>
+              <h2 id="contact-social">Contact &amp; Social</h2>
+              <ul>
+              <li><strong>GitHub:</strong> <a href="https://github.com/AndriiCoder1">github.com/AndriiCoder1</a></li>
+              <li><strong>Email:</strong> <a href="mailto:denisov20051985@gmail.com">denisov20051985@gmail.com</a></li>
+              </ul>
+              <hr>
+              <h2 id="license">License</h2>
+              <p>This project is licensed under the <strong>GNU Affero General Public License v3.0</strong> — see the <a href="LICENSE">LICENSE</a> file for details.</p>
+              <p>Copyright (c) 2026 Andrii Kovalov</p>
+              <hr>
+              <p><em>Built with ❤️ for families and their loved ones</em></p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
