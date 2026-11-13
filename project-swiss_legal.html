@@ -177,11 +177,14 @@
         
             /* Исправляем длинные ссылки */
             .project-container pre {
-                white-space: pre-wrap; 
-                word-wrap: break-word;
+                white-space: pre; 
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch; 
+                padding: 1rem; 
+                font-size: 0.8rem;
             }
             .project-container code {
-                word-break: break-all;
+                word-break: break-word;
             }
         }
     </style>
