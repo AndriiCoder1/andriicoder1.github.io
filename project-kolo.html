@@ -78,6 +78,7 @@
             margin-bottom: 1rem;
             border-bottom: 2px solid var(--accent);
             padding-bottom: 1rem;
+            text-align: center;
         }
         .project-container h2 {
             font-family: 'Playfair Display', serif;
@@ -137,13 +138,15 @@
 
         /* Ссылки */
         .project-container a {
-            color: var(--accent);
-            font-weight: 500;
+            color: var(--text); 
+            font-weight: 600; 
             text-decoration: none;
-            border-bottom: 1px dashed var(--accent);
+            border-bottom: 2px solid var(--accent); 
+            transition: all 0.2s;
         }
         .project-container a:hover {
-            border-bottom-style: solid;
+            color: var(--accent); 
+            border-bottom-color: var(--text); 
         }
 
         /* Адаптивность */
