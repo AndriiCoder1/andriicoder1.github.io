@@ -149,11 +149,40 @@
             border-bottom-color: var(--text); 
         }
 
-        /* Адаптивность */
+        /* Адаптивность для мобильных устройств */
         @media (max-width: 768px) {
-            .project-container { padding: 1.5rem; }
-            .project-container h1 { font-size: 2rem; }
-            .project-container h2 { font-size: 1.4rem; }
+            .project-container { 
+                padding: 1.5rem 1rem; 
+            }
+            .project-container h1 { 
+                font-size: 2rem; 
+            }
+            .project-container h2 { 
+                font-size: 1.4rem; 
+            }
+        
+            /* Таблицы в телефоне */
+            .project-container table {
+                display: block; 
+                overflow-x: auto; 
+                white-space: nowrap; 
+                -webkit-overflow-scrolling: touch; 
+            }
+            
+            /* Фон карточки */
+            .project-container {
+                background: rgba(255, 255, 255, 0.6); 
+                backdrop-filter: blur(20px); 
+            }
+        
+            /* Исправляем длинные ссылки */
+            .project-container pre {
+                white-space: pre-wrap; 
+                word-wrap: break-word;
+            }
+            .project-container code {
+                word-break: break-all;
+            }
         }
     </style>
 </head>
