@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Name · Andrii Kovalov</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --accent: #6baed6;
+            --text: #1a3c5e;
+            --text-light: #5a7f9e;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            color: var(--text);
+            min-height: 100vh;
+            background: #c0d9f0;
+        }
+
+        .mountain-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100vh;
+            background: url('images/mountains-clean.jpg') center bottom / cover no-repeat;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem 1rem 4rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Кнопка назад */
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            background: rgba(255,255,255,0.3);
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+            transition: all 0.2s;
+        }
+        .back-btn:hover {
+            background: rgba(255,255,255,0.6);
+            transform: translateX(-5px);
+        }
+
+        /* Основная карточка */
+        .project-container {
+            background: rgba(255,255,255,0.35);
+            backdrop-filter: blur(16px);
+            border-radius: 24px;
+            padding: 3rem;
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            line-height: 1.7;
+        }
+
+        /* Стили для Markdown-текста внутри карточки */
+        .project-container h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1rem;
+            text-align: center;
+        }
+        .project-container h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        .project-container h3 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .project-container p { margin-bottom: 1rem; }
+        .project-container ul, .project-container ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .project-container li { margin-bottom: 0.5rem; }
+        
+        /* Стили для таблиц (характеристики) */
+        .project-container table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .project-container th, .project-container td {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+        .project-container th {
+            background: rgba(255,255,255,0.3);
+            font-weight: 600;
+        }
+
+        /* Стили для блоков кода */
+        .project-container pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        .project-container code {
+            font-family: 'Courier New', monospace;
+            background: rgba(0,0,0,0.05);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        /* Ссылки */
+        .project-container a {
+            color: var(--text); 
+            font-weight: 600; 
+            text-decoration: none;
+            border-bottom: 2px solid var(--accent); 
+            transition: all 0.2s;
+        }
+        .project-container a:hover {
+            color: var(--accent); 
+            border-bottom-color: var(--text); 
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            .project-container { 
+                padding: 1.5rem 1rem; 
+            }
+            .project-container h1 { 
+                font-size: 2rem; 
+            }
+            .project-container h2 { 
+                font-size: 1.4rem; 
+            }
+        
+            /* Таблицы в телефоне */
+            .project-container table {
+                display: block; 
+                overflow-x: auto; 
+                white-space: nowrap; 
+                -webkit-overflow-scrolling: touch; 
+            }
+            
+            /* Фон карточки */
+            .project-container {
+                background: rgba(255, 255, 255, 0.6); 
+                backdrop-filter: blur(20px); 
+            }
+        
+            /* Исправляем длинные ссылки */
+            .project-container pre {
+                white-space: pre; 
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch; 
+                padding: 1rem; 
+                font-size: 0.8rem;
+            }
+            .project-container code {
+                word-break: break-word;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="mountain-bg"></div>
+
+<div class="content">
+    <div class="container">
+        <!-- Кнопка Назад -->
+        <a href="index.html" class="back-btn">← Back to Home</a>
+
+        <!-- Основной контент -->
+        <div class="project-container">
+          <h1>Sign Language Video Chat</h1>
+            <h2 id="sign-language-video-chat-application">Sign Language Video Chat Application</h2>
+            <p>A full-stack application designed for the deaf community that translates sign language to text and vice versa in real-time.</p>
+            <h2 id="features">Features</h2>
+            <ul>
+            <li>Real-time sign language recognition using machine learning</li>
+            <li>Text-to-sign language translation using a 3D avatar</li>
+            <li>Chat interface for communication</li>
+            <li>Responsive design for various devices</li>
+            </ul>
+            <h2 id="technology-stack">Technology Stack</h2>
+            <h3 id="frontend">Frontend</h3>
+            <ul>
+            <li>React.js</li>
+            <li>Three.js (for 3D avatar rendering)</li>
+            <li>TensorFlow.js/MediaPipe (for gesture recognition)</li>
+            <li>WebRTC (for camera access)</li>
+            </ul>
+            <h3 id="backend">Backend</h3>
+            <ul>
+            <li>Node.js</li>
+            <li>Express.js</li>
+            <li>Socket.io (for real-time communication)</li>
+            </ul>
+            <h2 id="project-structure">Project Structure</h2>
+            <pre><code>video-chat/
+            ├── <span class="hljs-keyword">client</span>/                 <span class="hljs-meta"># Frontend React application</span>
+            │   ├── <span class="hljs-keyword">public</span>/             <span class="hljs-meta"># Static files</span>
+            │   └── src/                <span class="hljs-meta"># React source code</span>
+            │       ├── components/     <span class="hljs-meta"># React components</span>
+            │       ├── utils/          <span class="hljs-meta"># Utility functions</span>
+            │       ├── services/       <span class="hljs-meta"># API services</span>
+            │       └── assets/         <span class="hljs-meta"># Images, 3D models, etc.</span>
+            ├── <span class="hljs-keyword">server</span>/                 <span class="hljs-meta"># Backend Node.js/Express application</span>
+            │   ├── controllers/        <span class="hljs-meta"># Request handlers</span>
+            │   ├── models/             <span class="hljs-meta"># Data models</span>
+            │   ├── routes/             <span class="hljs-meta"># API routes</span>
+            │   └── services/           <span class="hljs-meta"># Business logic</span>
+            └── README.md               <span class="hljs-meta"># Project documentation</span>
+            </code></pre><h2 id="installation">Installation</h2>
+            <h3 id="prerequisites">Prerequisites</h3>
+            <ul>
+            <li>Node.js (v14 or higher)</li>
+            <li>npm or yarn</li>
+            <li>A modern web browser with WebGL and camera access support</li>
+            </ul>
+            <h3 id="setup-instructions">Setup Instructions</h3>
+            <h4 id="option-1-using-the-setup-script-recommended-">Option 1: Using the Setup Script (Recommended)</h4>
+            <ol>
+            <li><p>Clone the repository</p>
+            <pre><code class="lang-bash">git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://github.com/yourusername/video-chat.git
+            cd video-chat
+            </code></pre>
+            </li>
+            <li><p>Run the setup script</p>
+            <pre><code class="lang-bash"><span class="hljs-keyword">node</span> <span class="hljs-title">setup</span>.js
+            </code></pre>
+            <p>This script will automatically install all dependencies and start both the client and server.</p>
+            </li>
+            <li><p>Open your browser and navigate to <code>http://localhost:3000</code></p>
+            </li>
+            </ol>
+            <h4 id="option-2-manual-setup">Option 2: Manual Setup</h4>
+            <ol>
+            <li><p>Clone the repository</p>
+            <pre><code class="lang-bash">git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://github.com/yourusername/video-chat.git
+            cd video-chat
+            </code></pre>
+            </li>
+            <li><p>Install backend dependencies</p>
+            <pre><code class="lang-bash">cd <span class="hljs-keyword">server</span>
+            npm install
+            </code></pre>
+            </li>
+            <li><p>Install frontend dependencies</p>
+            <pre><code class="lang-bash"><span class="hljs-function"><span class="hljs-title">cd</span></span> ../client
+            npm install
+            </code></pre>
+            </li>
+            <li><p>Start the development servers</p>
+            <p>Backend:</p>
+            <pre><code class="lang-bash">cd ../server
+            npm <span class="hljs-keyword">run</span><span class="bash"> dev</span>
+            </code></pre>
+            <p>Frontend (in a new terminal):</p>
+            <pre><code class="lang-bash"><span class="hljs-built_in">cd</span> ../client
+            npm <span class="hljs-built_in">start</span>
+            </code></pre>
+            </li>
+            <li><p>Open your browser and navigate to <code>http://localhost:3000</code></p>
+            </li>
+            </ol>
+            <h2 id="machine-learning-models">Machine Learning Models</h2>
+            <p>This application uses the following open-source models for sign language recognition:</p>
+            <ul>
+            <li><p><strong>MediaPipe Hands</strong>: For hand tracking and gesture recognition</p>
+            <ul>
+            <li>Provides real-time hand landmark detection</li>
+            <li>Identifies 21 3D landmarks of a hand from a single frame</li>
+            </ul>
+            </li>
+            <li><p><strong>TensorFlow.js</strong>: For running the ML models in the browser</p>
+            <ul>
+            <li>Enables on-device machine learning</li>
+            <li>Provides pre-trained models and tools for custom model training</li>
+            </ul>
+            </li>
+            </ul>
+            <h2 id="how-it-works">How It Works</h2>
+            <h3 id="sign-language-recognition">Sign Language Recognition</h3>
+            <ol>
+            <li>The application accesses the user&#39;s camera using WebRTC</li>
+            <li>Hand landmarks are detected using MediaPipe Hands</li>
+            <li>The landmarks are processed to extract features (angles, distances between joints)</li>
+            <li>These features are matched against known sign patterns or fed into a machine learning model</li>
+            <li>The recognized signs are displayed as text in the chat interface</li>
+            </ol>
+            <h3 id="text-to-sign-translation">Text-to-Sign Translation</h3>
+            <ol>
+            <li>User types text messages in the chat interface</li>
+            <li>The text is sent to the server for processing</li>
+            <li>The server generates animation data for the 3D avatar</li>
+            <li>The 3D avatar performs the corresponding sign language gestures</li>
+            </ol>
+            <h2 id="extending-the-application">Extending the Application</h2>
+            <h3 id="adding-new-signs">Adding New Signs</h3>
+            <p>To add new signs to the recognition system:</p>
+            <ol>
+            <li>Collect training data for the new signs</li>
+            <li>Extract features from the hand landmarks</li>
+            <li>Train a model or update the pattern matching system</li>
+            <li>Update the sign dictionary in the application</li>
+            </ol>
+            <h3 id="improving-recognition-accuracy">Improving Recognition Accuracy</h3>
+            <ul>
+            <li>Collect more training data from diverse users</li>
+            <li>Implement more sophisticated feature extraction</li>
+            <li>Use transfer learning with larger pre-trained models</li>
+            <li>Implement sequence models (LSTM, GRU) for dynamic gestures</li>
+            </ul>
+            <h2 id="contributing">Contributing</h2>
+            <p>Contributions are welcome! Please feel free to submit a Pull Request.</p>
+            <h2 id="license">License</h2>
+            <p>This project is licensed under the MIT License - see the LICENSE file for details.</p>
+            <h2 id="acknowledgements">Acknowledgements</h2>
+            <ul>
+            <li><a href="https://mediapipe.dev/">MediaPipe</a> for the hand tracking solution</li>
+            <li><a href="https://www.tensorflow.org/js">TensorFlow.js</a> for the machine learning framework</li>
+            <li><a href="https://threejs.org/">Three.js</a> for 3D rendering</li>
+            <li><a href="https://socket.io/">Socket.io</a> for real-time communication</li>
+            </ul>
+            <hr>
+            <h2 id="about-the-author">About the Author</h2>
+            <p>This project was created by <strong>Andrii Kovalov</strong> (<a href="https://github.com/AndriiCoder1">@AndriiCoder1</a>).</p>
+            <ul>
+            <li><strong>Purpose:</strong> Real-time sign language translation for the deaf community</li>
+            <li><strong>Tech Stack:</strong> React, Three.js, MediaPipe, WebRTC, Socket.IO, Node.js</li>
+            <li><strong>Key Features:</strong> 3D avatar animation with quaternion-based hand gestures, real-time camera capture, sign-to-text and text-to-sign translation</li>
+            <li><strong>License:</strong> MIT</li>
+            </ul>
+            <p>If you find this project useful, feel free to <strong>star ⭐</strong> the repository or fork it for your own needs!</p>
+            <hr>
+            <h2 id="related-projects">Related Projects</h2>
+            <p>Part of my portfolio of open-source projects:</p>
+            <table>
+            <thead>
+            <tr>
+            <th>Project</th>
+            <th>Description</th>
+            <th>Tech Stack</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td><a href="https://github.com/AndriiCoder1/kolo"><strong>Kolo</strong></a></td>
+            <td>Cooperative CivicTech for migrant integration</td>
+            <td>Django, DRF, Stripe, Ollama AI, Resend</td>
+            </tr>
+            <tr>
+            <td><a href="https://github.com/AndriiCoder1/copy_everest"><strong>EverRest</strong></a></td>
+            <td>Digital memorial platform (SaaS)</td>
+            <td>Django, PostgreSQL, Docker, Celery, Ollama AI</td>
+            </tr>
+            <tr>
+            <td><a href="https://github.com/AndriiCoder1/video-chat"><strong>Video Chat with Sign Language</strong></a></td>
+            <td>Real-time sign language translation</td>
+            <td>React, Three.js, MediaPipe, WebRTC</td>
+            </tr>
+            <tr>
+            <td><a href="https://github.com/AndriiCoder1/chathelp"><strong>ChatHelp</strong></a></td>
+            <td>Personal AI assistant with voice</td>
+            <td>Node.js, Hugging Face, Whisper</td>
+            </tr>
+            </tbody>
+            </table>
+            <hr>
+            <h2 id="contact-social">Contact &amp; Social</h2>
+            <ul>
+            <li><strong>GitHub:</strong> <a href="https://github.com/AndriiCoder1">github.com/AndriiCoder1</a></li>
+            <li><strong>Email:</strong> <a href="mailto:denisov20051985@gmail.com">denisov20051985@gmail.com</a></li>
+            </ul>
+            <hr>
+            <h2 id="license">License</h2>
+            <p>This project is licensed under the <strong>MIT License</strong> — see the <a href="LICENSE">LICENSE</a> file for details.</p>
+            <p>Copyright (c) 2025 Andrii Kovalov</p>
+            <hr>
+            <p><em>Built with ❤️ for the deaf community</em></p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
