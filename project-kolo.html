@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Name · Andrii Kovalov</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --accent: #6baed6;
+            --text: #1a3c5e;
+            --text-light: #5a7f9e;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            color: var(--text);
+            min-height: 100vh;
+            background: #c0d9f0;
+        }
+
+        .mountain-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100vh;
+            background: url('images/mountains-clean.jpg') center bottom / cover no-repeat;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem 1rem 4rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Кнопка назад */
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            background: rgba(255,255,255,0.3);
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+            transition: all 0.2s;
+        }
+        .back-btn:hover {
+            background: rgba(255,255,255,0.6);
+            transform: translateX(-5px);
+        }
+
+        /* Основная карточка */
+        .project-container {
+            background: rgba(255,255,255,0.35);
+            backdrop-filter: blur(16px);
+            border-radius: 24px;
+            padding: 3rem;
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            line-height: 1.7;
+        }
+
+        /* Стили для Markdown-текста внутри карточки */
+        .project-container h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1rem;
+            text-align: center;
+        }
+        .project-container h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        .project-container h3 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .project-container p { margin-bottom: 1rem; }
+        .project-container ul, .project-container ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .project-container li { margin-bottom: 0.5rem; }
+        
+        /* Стили для таблиц (характеристики) */
+        .project-container table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .project-container th, .project-container td {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+        .project-container th {
+            background: rgba(255,255,255,0.3);
+            font-weight: 600;
+        }
+
+        /* Стили для блоков кода */
+        .project-container pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        .project-container code {
+            font-family: 'Courier New', monospace;
+            background: rgba(0,0,0,0.05);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        /* Ссылки */
+        .project-container a {
+            color: var(--text); 
+            font-weight: 600; 
+            text-decoration: none;
+            border-bottom: 2px solid var(--accent); 
+            transition: all 0.2s;
+        }
+        .project-container a:hover {
+            color: var(--accent); 
+            border-bottom-color: var(--text); 
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            .project-container { 
+                padding: 1.5rem 1rem; 
+            }
+            .project-container h1 { 
+                font-size: 2rem; 
+            }
+            .project-container h2 { 
+                font-size: 1.4rem; 
+            }
+        
+            /* Таблицы в телефоне */
+            .project-container table {
+                display: block; 
+                overflow-x: auto; 
+                white-space: nowrap; 
+                -webkit-overflow-scrolling: touch; 
+            }
+            
+            /* Фон карточки */
+            .project-container {
+                background: rgba(255, 255, 255, 0.6); 
+                backdrop-filter: blur(20px); 
+            }
+        
+            /* Исправляем длинные ссылки */
+            .project-container pre {
+                white-space: pre; 
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch; 
+                padding: 1rem; 
+                font-size: 0.8rem;
+            }
+            .project-container code {
+                word-break: break-word;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="mountain-bg"></div>
+
+<div class="content">
+    <div class="container">
+        <!-- Кнопка Назад -->
+        <a href="index.html" class="back-btn">← Back to Home</a>
+
+        <!-- Основной контент -->
+        <div class="project-container">
+            <h1>Kolo — Cooperative CivicTech for Migrant Integration CH</h1>
+              <p> <img src="https://flagcdn.com/w40/ch.png" alt="🇨🇭"></p>
+              <h2 id="status-platform-kolo-cooperative-civictech-for-migrant-integration-ch">Status Platform / Kolo — Cooperative CivicTech for Migrant Integration CH</h2>
+              <p> <strong>Live Demo:</strong> Suspended (portfolio project)<br><strong>Portfolio:</strong> <a href="https://andriicoder1.github.io">https://andriicoder1.github.io</a></p>
+              <p>A membership-based trade and social cooperative platform designed for the professional integration of migrants in Switzerland.
+              Built with a focus on democratic governance, economic participation, and AI-driven media monitoring.</p>
+              <h2 id="-platform-capabilities-"><strong>Platform Capabilities</strong></h2>
+              <h2 id="economics-integration">Economics &amp; Integration</h2>
+              <ul>
+              <li>Shared production, local trade, fairs, and sales channels.</li>
+              <li>Social programs: Language support, training, and a Talent Fund (micro-grants up to 3,000 CHF).</li>
+              </ul>
+              <h2 id="-democratic-governance-"><strong>Democratic Governance</strong></h2>
+              <ul>
+              <li><strong>One member = one vote</strong>.</li>
+              <li>Elections of governing bodies and profit distribution.</li>
+              <li>Yes/No/Abstain voting system with a built-in survey builder.</li>
+              </ul>
+              <h2 id="-information-analytics-"><strong>Information &amp; Analytics</strong></h2>
+              <ul>
+              <li>AI-driven media monitoring across Swiss news sources (focusing on S-Status, integration, and employment).</li>
+              <li>Automatic RSS aggregation from 7 sources + manual article entry.</li>
+              </ul>
+              <p>The project uses a monolithic architecture optimized for modularity:</p>
+              <pre><code class="lang-text">  Architecture Overview
+              
+              Django <span class="hljs-number">5.29</span> + DRF + PostgreSQL/SQLite
+              ├── everest/ (Core auth/audit engine, inherited from EverRest project)
+              ├── status_platform/ (Main application)
+              │   ├── models<span class="hljs-selector-class">.py</span> — <span class="hljs-number">10</span> custom data models
+              │   ├── views<span class="hljs-selector-class">.py</span> — API endpoints &amp; UI views
+              │   ├── admin<span class="hljs-selector-class">.py</span> — Admin interface with proxy model inheritance
+              │   └── templates/status/ — <span class="hljs-number">26</span> HTML templates
+              ├── static/ — Custom CSS/JS <span class="hljs-keyword">for</span> the <span class="hljs-string">"Kolo"</span> design system
+              └── scrapper_news/ — RSS aggregator &amp; AI integration
+              </code></pre>
+              <h2 id="key-features">Key Features</h2>
+              <table>
+              <thead>
+              <tr>
+              <th style="text-align:left">Feature</th>
+              <th style="text-align:left">Description</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+              <td style="text-align:left"><strong>3-Tier Membership</strong></td>
+              <td style="text-align:left">Supporter (from 100 CHF), Participant (100 CHF), Activist (100 CHF) — each with distinct permissions.</td>
+              </tr>
+              <tr>
+              <td style="text-align:left"><strong>Stripe Integration</strong></td>
+              <td style="text-align:left">Sandbox/Test mode only. Webhook integration implemented for testing membership contributions.</td>
+              </tr>
+              <tr>
+              <td style="text-align:left"><strong>JWT + Google OAuth</strong></td>
+              <td style="text-align:left">Secure authentication with login-by-ID support.</td>
+              </tr>
+              <tr>
+              <td style="text-align:left"><strong>AI Media Monitoring</strong></td>
+              <td style="text-align:left">RSS aggregation from 7 Swiss sources + admin.ch REST API (8,000+ articles, 20+ departments).</td>
+              </tr>
+              <tr>
+              <td style="text-align:left"><strong>AI Sentiment Analysis</strong></td>
+              <td style="text-align:left">Ollama-powered (private inference, no data leaves the project) with batch summarization.</td>
+              </tr>
+              <tr>
+              <td style="text-align:left"><strong>Parallax Glassmorphism UI</strong></td>
+              <td style="text-align:left">Modern, responsive design optimized for mobile (iPhone/Android).</td>
+              </tr>
+              <tr>
+              <td style="text-align:left"><strong>Multilingual</strong></td>
+              <td style="text-align:left">Full i18n support: DE, FR, IT, EN, RU, UA.</td>
+              </tr>
+              <tr>
+              <td style="text-align:left"><strong>Email Notifications</strong></td>
+              <td style="text-align:left">Resend integration for registration, new topics, comments, and polls.</td>
+              </tr>
+              <tr>
+              <td style="text-align:left"><strong>Audit Logging</strong></td>
+              <td style="text-align:left">Privacy-first audit logs (REGISTER, LOGIN, VOTE, PAYMENT, etc.) built with GDPR/FADP principles in mind.</td>
+              </tr>
+              </tbody>
+              </table>
+              <h2 id="technical-stack">Technical Stack</h2>
+              <h3 id="backend">Backend</h3>
+              <table>
+              <thead>
+              <tr>
+              <th style="text-align:left">Component</th>
+              <th style="text-align:left">Technology</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+              <td style="text-align:left">Framework</td>
+              <td style="text-align:left">Django 5.29 + Django REST Framework</td>
+              </tr>
+              <tr>
+              <td style="text-align:left">Database</td>
+              <td style="text-align:left">PostgreSQL (Neon, free tier)</td>
+              </tr>
+              <tr>
+              <td style="text-align:left">Payments</td>
+              <td style="text-align:left">Stripe (Sandbox + Webhooks)</td>
+              </tr>
+              <tr>
+              <td style="text-align:left">Auth</td>
+              <td style="text-align:left">JWT + Google OAuth (FedCM)</td>
+              </tr>
+              <tr>
+              <td style="text-align:left">AI/ML</td>
+              <td style="text-align:left">Ollama (Hugging Face, private inference)</td>
+              </tr>
+              <tr>
+              <td style="text-align:left">Email</td>
+              <td style="text-align:left">Resend</td>
+              </tr>
+              <tr>
+              <td style="text-align:left">Deployment</td>
+              <td style="text-align:left">Render (free tier) via GitHub</td>
+              </tr>
+              </tbody>
+              </table>
+              <h3 id="frontend">Frontend</h3>
+              <table>
+              <thead>
+              <tr>
+              <th style="text-align:left">Component</th>
+              <th style="text-align:left">Technology</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+              <td style="text-align:left">Core</td>
+              <td style="text-align:left">HTML5, CSS3, JavaScript (Vanilla)</td>
+              </tr>
+              <tr>
+              <td style="text-align:left">Design</td>
+              <td style="text-align:left">Parallax Glassmorphism UI</td>
+              </tr>
+              <tr>
+              <td style="text-align:left">Responsive</td>
+              <td style="text-align:left">Fully optimized for iPhone/Android</td>
+              </tr>
+              <tr>
+              <td style="text-align:left">Internationalization</td>
+              <td style="text-align:left">Django i18n (DE, FR, IT, EN, RU, UA)</td>
+              </tr>
+              </tbody>
+              </table>
+              <h2 id="-membership-tiers-permissions">🛡️ Membership Tiers &amp; Permissions</h2>
+              <table>
+              <thead>
+              <tr>
+              <th style="text-align:left">Tier</th>
+              <th style="text-align:left">Contribution</th>
+              <th style="text-align:left">Features</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+              <td style="text-align:left"><strong>Supporter</strong></td>
+              <td style="text-align:left">from 100 CHF</td>
+              <td style="text-align:left">Donation without registration, public counter visibility.</td>
+              </tr>
+              <tr>
+              <td style="text-align:left"><strong>Participant</strong></td>
+              <td style="text-align:left">100 CHF</td>
+              <td style="text-align:left">Full profile, voting rights, access to forums.</td>
+              </tr>
+              <tr>
+              <td style="text-align:left"><strong>Activist</strong></td>
+              <td style="text-align:left">100 CHF</td>
+              <td style="text-align:left">+ Organizing events, creating polls and discussion topics.</td>
+              </tr>
+              </tbody>
+              </table>
+              <h2 id="implemented-features-core-modules-">Implemented Features (Core Modules)</h2>
+              <p> Core &amp; Authentication</p>
+              <p>✅ Stripe Payments (Sandbox mode + Webhooks).</p>
+              <p>✅ 3-tier membership registration with auto-assigned user groups.</p>
+              <p>✅ JWT Authentication + social login via Google OAuth (FedCM).</p>
+              <p>✅ Proxy model inheritance in the Django Admin panel.</p>
+              <p>✅ Real-time participant counter and analytics from the database.</p>
+              <p>✅ Audit logging (REGISTER, LOGIN, VOTE, PAYMENT, CREATE_TOPIC, etc.).</p>
+              <p>Frontend &amp; Parallax Glassmorphism</p>
+              <p>✅ Landing page with hero section, mission statements, and sector navigation.</p>
+              <p>✅ 7 sector pages with custom backgrounds (Trade, Crafts, Farming, Culture, Education, Technology).</p>
+              <p>✅ Registration, Login, User Dashboard, and 20+ informational pages.</p>
+              <p>✅ Fully mobile-responsive (iPhone/Android optimized) with a background carousel.</p>
+              <p>Voting &amp; Forums</p>
+              <p>✅ Interactive voting system with survey switching (← →).</p>
+              <p>✅ Survey builder (Standard &amp; Contextual).</p>
+              <p>✅ Dynamic voting buttons based on live options.</p>
+              <p>✅ Forum: Topics + threaded comments (guests have view-only access).</p>
+              <p>AI-Powered Media Monitoring</p>
+              <p>✅ RSS aggregation from SRF, SWI swissinfo (DE/FR/IT), Le Temps, RTS, Watson.</p>
+              <p>✅ Manual article input to cover restricted sources (Blick, NZZ, Tages-Anzeiger).</p>
+              <p>✅ AI analysis: Sentiment analysis + category detection + summarization.</p>
+              <p>✅ Advanced filters by language &amp; sentiment.</p>
+              <p>✅ Auto-post generation for social media (LinkedIn, Facebook, Instagram, Telegram) based on platform metrics.</p>
+              <p>✅ Resume Registry (Admin Panel): Fully secure, superadmin-only interface for managing participant resumes. Includes expandable accordion cards, live search, and status management filters (New / Under Review / Job Offered / Hired).</p>
+              <p>Notifications (Resend API)</p>
+              <p>✅ Email triggers for: New registration, New topic created, New comment added, New poll created.</p>
+              <p>🔒 Security &amp; Privacy</p>
+              <p>✅ Brute-force protection: 3 failed login attempts → temporary lock (using django-axes).</p>
+              <p>✅ DRF Throttling: Rate limiting for API endpoints.</p>
+              <p>✅ Security headers: CSRF, CSP (Content Security Policy), HSTS.</p>
+              <p>✅ Data privacy: All secrets are managed via environment variables (.env). Privacy-first architecture (GDPR/FADP-ready).</p>
+              <p>🐳 Deployment &amp; Infrastructure</p>
+              <p>✅ Hosting: Render (Free Tier) + Neon (PostgreSQL).</p>
+              <p>✅ Static files: WhiteNoise for efficient serving.</p>
+              <p>✅ Stripe Webhooks: Configured for test payment event handling.</p>
+              <hr>
+              <h2 id="about-the-author">About the Author</h2>
+              <p>This project was created by <strong>Andrii Kovalov</strong> (<a href="https://github.com/AndriiCoder1">@AndriiCoder1</a>).</p>
+              <ul>
+              <li><strong>Purpose:</strong> A cooperative platform that merges civic tech, AI, and economic empowerment for Swiss integration.</li>
+              <li><strong>Tech Stack:</strong> Django 5.29, PostgreSQL, Stripe, Ollama, Resend, Render.</li>
+              <li><strong>Key Differentiator:</strong> Built on top of a robust, enterprise-ready core (EverRest), with added governance, multi-tier payment logic, and custom RSS/AI pipelines.</li>
+              <li><strong>Key Features:</strong> 3-tier membership, AI media monitoring, privacy-first architecture, full i18n (6 languages).</li>
+              <li><strong>License:</strong> GNU Affero General Public License v3.0</li>
+              </ul>
+              <p>If you find this project useful, feel free to <strong>star ⭐</strong> the repository!</p>
+              <h2 id="related-projects">Related Projects</h2>
+              <p>Part of my portfolio of open-source projects:</p>
+              <table>
+              <thead>
+              <tr>
+              <th>Project</th>
+              <th>Description</th>
+              <th>Tech Stack</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+              <td><a href="https://github.com/AndriiCoder1/kolo"><strong>Kolo</strong></a></td>
+              <td>Cooperative CivicTech for migrant integration</td>
+              <td>Django, DRF, Stripe, Ollama AI, Resend</td>
+              </tr>
+              <tr>
+              <td><a href="https://github.com/AndriiCoder1/copy_everest"><strong>EverRest</strong></a></td>
+              <td>Digital memorial platform (SaaS)</td>
+              <td>Django, PostgreSQL, Docker, Celery, Ollama AI</td>
+              </tr>
+              <tr>
+              <td><a href="https://github.com/AndriiCoder1/video-chat"><strong>Video Chat with Sign Language</strong></a></td>
+              <td>Real-time sign language translation</td>
+              <td>React, Three.js, MediaPipe, Ollama AI, WebRTC</td>
+              </tr>
+              <tr>
+              <td><a href="https://github.com/AndriiCoder1/chathelp"><strong>ChatHelp</strong></a></td>
+              <td>Personal AI assistant with voice</td>
+              <td>Node.js, Python, Hugging Face, Whisper</td>
+              </tr>
+              </tbody>
+              </table>
+              <hr>
+              <h2 id="contact-social">Contact &amp; Social</h2>
+              <ul>
+              <li><strong>GitHub:</strong> <a href="https://github.com/AndriiCoder1">github.com/AndriiCoder1</a></li>
+              <li><strong>Email:</strong> <a href="mailto:denisov20051985@gmail.com">denisov20051985@gmail.com</a></li>
+              </ul>
+              <hr>
+              <h2 id="license">License</h2>
+              <p>This project is licensed under the <strong>GNU Affero General Public License v3.0</strong> — see the <a href="LICENSE">LICENSE</a> file for details.</p>
+              <p>Copyright (c) 2026 Andrii Kovalov</p>
+              <hr>
+              <p><em>Built with ❤️ for a more inclusive Switzerland</em></p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
