@@ -436,6 +436,22 @@
             container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
         }
     }
+    // Сохраняем позицию страницы
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('click', () => {
+            sessionStorage.setItem('portfolioScrollPosition', window.scrollY);
+        });
+    });
+    
+    // Восстанавливаем позицию при возвращении
+    window.addEventListener('pageshow', () => {
+        const savedPosition = sessionStorage.getItem('portfolioScrollPosition');
+    
+        if (savedPosition !== null) {
+            window.scrollTo(0, Number(savedPosition));
+            sessionStorage.removeItem('portfolioScrollPosition');
+        }
+    });
 </script>
 </body>
 </html>
