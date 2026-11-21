@@ -118,20 +118,6 @@ $$('[data-project]').forEach(card=>card.addEventListener('click',()=>openCase(ca
 $('[data-close-case]').addEventListener('click',()=>caseDialog.close());
 caseDialog.addEventListener('click',event=>{if(event.target===caseDialog){const rect=caseDialog.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)caseDialog.close();}});
 caseDialog.addEventListener('close',()=>{document.body.classList.remove('locked');caseTrigger?.focus({preventScroll:true});});
-// The reviewer panel is separate from the portfolio experience.
-const reviewToggle=$('.review-toggle');const reviewPanel=$('#review-panel');const backdrop=$('#panel-backdrop');
-let reviewPreviousFocus;
-function openReview(){reviewPreviousFocus=document.activeElement;closeMenu();reviewPanel.hidden=false;backdrop.hidden=false;document.body.classList.add('locked');reviewToggle.setAttribute('aria-expanded','true');$('[data-close-panel]').focus({preventScroll:true});}
-function closeReview(){reviewPanel.hidden=true;backdrop.hidden=true;document.body.classList.remove('locked');reviewToggle.setAttribute('aria-expanded','false');reviewPreviousFocus?.focus({preventScroll:true});}
-reviewToggle.addEventListener('click',openReview);$('[data-close-panel]').addEventListener('click',closeReview);backdrop.addEventListener('click',closeReview);
-reviewPanel.addEventListener('keydown', event => {
- if(event.key==='Escape'){event.preventDefault();closeReview();}
- if(event.key==='Tab'){
-  const focusables=$$('a[href],button:not([disabled])',reviewPanel);const first=focusables[0],last=focusables.at(-1);
-  if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
-  else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
- }
-});
 document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu();});
 $$('[data-copy-email]').forEach(button=>button.addEventListener('click',async()=>{
  const address='denisov20051985@gmail.com';
@@ -146,4 +132,3 @@ function updateProgress(){const max=document.documentElement.scrollHeight-window
 window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(updateProgress);}},{passive:true});updateProgress();
 // Single open expertise row keeps the scanning experience compact.
 $$('.expertise-list details').forEach(detail=>detail.addEventListener('toggle',()=>{if(detail.open){$$('.expertise-list details').forEach(other=>{if(other!==detail)other.open=false;});}}));
-if(new URLSearchParams(window.location.search).get('notes')==='1')openReview();
