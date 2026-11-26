@@ -10,7 +10,7 @@ const projects = {
   stack: ['Python','Django / DRF','PostgreSQL / pgvector','Groq','Hugging Face','SPARQL'],
   original: 'https://andriicoder1.github.io/project-swiss_legal.html',
   repo: 'https://github.com/AndriiCoder1/swiss-legal-assist',
-  disclaimer: 'Technical demonstration. It does not provide legal advice. The card shows an interface concept created for this portfolio redesign, not a screenshot of the original product.'
+  disclaimer: 'Technical demonstration. It does not provide legal advice.'
  },
  kolo: {
   title: 'Kolo', category: '02 / CIVICTECH + COMMUNITY PLATFORM',
@@ -21,7 +21,7 @@ const projects = {
   flow: ['Swiss RSS feeds','Django / DRF','Local Ollama','Member dashboard'],
   stack: ['Django / DRF','PostgreSQL','Stripe sandbox','Ollama','Resend','Render'],
   original: 'https://andriicoder1.github.io/project-kolo.html', repo: 'https://github.com/AndriiCoder1/kolo',
-  disclaimer: 'Portfolio project. Payment integration uses Stripe sandbox; it is not presented as a live commercial payment service. The card artwork is an illustration for this redesign.'
+  disclaimer: 'Portfolio project. Payment integration uses Stripe sandbox; it is not presented as a live commercial payment service.'
  },
  everrest: {
   title: 'EverRest', category: '03 / SAAS + PRIVACY-FIRST ENGINEERING',
@@ -32,7 +32,7 @@ const projects = {
   flow: ['Guest tribute','Django','Celery / Redis','Local Ollama'],
   stack: ['Django','PostgreSQL','Redis','Celery','Ollama','Docker / Nginx'],
   original: 'https://andriicoder1.github.io/project-everrest.html', repo: 'https://github.com/AndriiCoder1/copy_everest',
-  disclaimer: 'Project scope and architecture are summarized from the original case study. The card artwork is an illustration created for this redesign.'
+  disclaimer: 'Project scope and architecture are summarized from the original case study.'
  },
  chathelp: {
   title: 'ChatHelp', category: '04 / VOICE + CONVERSATIONAL AI',
