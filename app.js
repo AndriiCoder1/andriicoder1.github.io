@@ -9,8 +9,7 @@ const projects = {
   flow: ['Official sources','Parse & chunk','pgvector','LLM + sources'],
   stack: ['Python','Django / DRF','PostgreSQL / pgvector','Groq','Hugging Face','SPARQL'],
   original: 'https://andriicoder1.github.io/project-swiss_legal.html',
-  repo: 'https://github.com/AndriiCoder1/swiss-legal-assist',
-  disclaimer: 'Technical demonstration. It does not provide legal advice.'
+  repo: 'https://github.com/AndriiCoder1/swiss-legal-assist'
  },
  kolo: {
   title: 'Kolo', category: '02 / CIVICTECH + COMMUNITY PLATFORM',
