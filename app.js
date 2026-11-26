@@ -20,8 +20,7 @@ const projects = {
   solution: ['Three membership tiers with role-based permissions and sandbox payment webhooks.', 'Voting, surveys, forums and threaded comments.', 'News aggregation from 7 Swiss sources and 8,000+ articles, with Ollama analysis.', 'Six interface languages, Resend notifications and audit logging.'],
   flow: ['Swiss RSS feeds','Django / DRF','Local Ollama','Member dashboard'],
   stack: ['Django / DRF','PostgreSQL','Stripe sandbox','Ollama','Resend','Render'],
-  original: 'https://andriicoder1.github.io/project-kolo.html', repo: 'https://github.com/AndriiCoder1/kolo',
-  disclaimer: 'Portfolio project. Payment integration uses Stripe sandbox; it is not presented as a live commercial payment service.'
+  original: 'https://andriicoder1.github.io/project-kolo.html', repo: 'https://github.com/AndriiCoder1/kolo'
  },
  everrest: {
   title: 'EverRest', category: '03 / SAAS + PRIVACY-FIRST ENGINEERING',
@@ -31,8 +30,7 @@ const projects = {
   solution: ['Partner administration, token-protected family access and public memorial pages.', 'Local Ollama moderation without third-party AI API data transfers.', 'Celery and Redis background processing for heavier AI tasks.', 'Docker Compose services, audit logging and four interface languages.'],
   flow: ['Guest tribute','Django','Celery / Redis','Local Ollama'],
   stack: ['Django','PostgreSQL','Redis','Celery','Ollama','Docker / Nginx'],
-  original: 'https://andriicoder1.github.io/project-everrest.html', repo: 'https://github.com/AndriiCoder1/copy_everest',
-  disclaimer: 'Project scope and architecture are summarized from the original case study.'
+  original: 'https://andriicoder1.github.io/project-everrest.html', repo: 'https://github.com/AndriiCoder1/copy_everest'
  },
  chathelp: {
   title: 'ChatHelp', category: '04 / VOICE + CONVERSATIONAL AI',
@@ -42,8 +40,7 @@ const projects = {
   solution: ['Browser voice capture and Whisper-based transcription.', 'Node.js orchestration with Python-based AI and audio processing.', 'LLaMA inference, SerpAPI search and multilingual spoken responses.', 'Conversation context, response caching and silence detection.'],
   flow: ['Browser audio','Whisper','LLaMA / search','Spoken response'],
   stack: ['Node.js / Express','Python','Socket.IO','Whisper','LLaMA','SerpAPI'],
-  original: 'https://andriicoder1.github.io/project-chathelp.html', repo: 'https://github.com/AndriiCoder1/chathelp',
-  disclaimer: 'The card visual illustrates the project’s voice interface; it is not a recording or a live voice demo.'
+  original: 'https://andriicoder1.github.io/project-chathelp.html', repo: 'https://github.com/AndriiCoder1/chathelp'
  },
  signlang: {
   title: 'Sign Language Video Chat', category: '05 / ACCESSIBILITY + REAL-TIME',
@@ -53,8 +50,7 @@ const projects = {
   solution: ['MediaPipe / TensorFlow.js for hand landmarks and gesture recognition.', 'Three.js avatar animation for text-to-sign output.', 'WebRTC camera access with Node.js and Socket.IO communication.', 'A responsive React interface connecting the recognition and chat workflows.'],
   flow: ['Camera input','Hand landmarks','Recognition','Text / 3D avatar'],
   stack: ['React','Three.js','MediaPipe','TensorFlow.js','WebRTC','Socket.IO'],
-  original: 'https://andriicoder1.github.io/project-signlang.html', repo: 'https://github.com/AndriiCoder1/video-chat',
-  disclaimer: 'An accessibility-focused portfolio project. The visual is an illustration of hand tracking, not a live camera feed or a claim of clinically validated translation accuracy.'
+  original: 'https://andriicoder1.github.io/project-signlang.html', repo: 'https://github.com/AndriiCoder1/video-chat'
  }
 };
 function externalIcon(){const ns='http://www.w3.org/2000/svg';const svg=document.createElementNS(ns,'svg');svg.setAttribute('class','icon-ne');svg.setAttribute('viewBox','0 0 20 20');svg.setAttribute('aria-hidden','true');svg.setAttribute('focusable','false');const path=document.createElementNS(ns,'path');path.setAttribute('d','M4 16 16 4M4 4h12v12');svg.append(path);return svg;}
